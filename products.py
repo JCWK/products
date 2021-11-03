@@ -5,7 +5,14 @@ while True:
 		break
 	price = input("Please input product price: ")
 	products.append([name, price])
-print(products)
+# print(products)
 
+print("The file(products.csv) is created. Below are the data you just added. \n")
+print("Product name", "    ", "Product price")
 for p in products:
-	print("The price of", p[0], "is HK$", p[1])
+    print(p[0], "    ", p[1])
+
+with open ("products.csv", "w") as f:
+	f.write("Product name" + "," + "Product price" + "\n")
+	for p in products:
+		f.write(p[0] + "," + p[1] + "\n")
